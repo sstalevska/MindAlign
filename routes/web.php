@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionnaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 require __DIR__.'/auth.php';
+
+Route::prefix('client')->name('client.')->middleware(['auth', 'verified'])->group(function () {
+    Route::resource('questionnaires', QuestionnaireController::class);
+});

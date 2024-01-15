@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Questionnaire;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Models\Questionnaire;
 
 class QuestionnaireController extends Controller
 {
@@ -18,9 +19,9 @@ class QuestionnaireController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('client.questionnaires.create');
     }
 
     /**
@@ -28,7 +29,7 @@ class QuestionnaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
