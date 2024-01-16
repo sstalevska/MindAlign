@@ -9,6 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('client.questionnaires.store') }}" method="POST" class="mt-6 space-y-6">
                 @csrf
+
+                @if ($errors->any())
+                    <div class="bg-red-200 text-red-800 border-red-300 border px-5 py-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="bg-white dark:bg-gray-900 p-6 text-gray-900 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
                     <p class="mb-20">I would like the therapist to...</p>
 

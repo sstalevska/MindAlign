@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreQuestionnaireRequest;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Questionnaire;
@@ -27,7 +28,7 @@ class QuestionnaireController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreQuestionnaireRequest $request)
     {
         dd($request);
     }
