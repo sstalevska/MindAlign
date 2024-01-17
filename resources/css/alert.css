@@ -1,0 +1,29 @@
+.alert {
+    @apply
+        max-w-2xl mx-auto my-3 px-4 py-3 text-sm border-t-4 sm:rounded-b shadow-md;
+}
+
+.alert-error {
+    @apply
+        bg-red-100 border-red-500 text-red-800;
+}
+
+.alert-warning {
+    @apply
+        bg-yellow-100 border-yellow-600 text-yellow-800;
+}
+
+.alert-info {
+    @apply
+        bg-blue-100 border-blue-500 text-blue-800;
+}
+
+.alert-success {
+    @apply
+        bg-green-100 border-green-500 text-green-800;
+}
+
+.alert svg {
+    @apply
+        w-5 h-5 mr-4 fill-current;
+}

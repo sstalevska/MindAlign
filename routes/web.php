@@ -30,5 +30,6 @@ Route::view('profile', 'profile')
 require __DIR__.'/auth.php';
 
 Route::prefix('client')->name('client.')->middleware(['auth', 'verified'])->group(function () {
-    Route::resource('questionnaires', QuestionnaireController::class);
+    Route::resource('questionnaires', QuestionnaireController::class)
+        ->except(['show']);
 });

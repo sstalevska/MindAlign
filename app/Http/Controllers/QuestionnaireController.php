@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreQuestionnaireRequest;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Questionnaire;
+use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\Session;
+
+use App\Http\Requests\StoreQuestionnaireRequest;
+use Symfony\Component\Console\Question\Question;
 
 class QuestionnaireController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $questionnaire = Questionnaire::where('user_id', auth()->user()->id)->first();
+
+        return view('client.questionnaires.index', [
+            'questionnaire' => $questionnaire,
+        ]);
     }
 
     /**
@@ -30,7 +38,18 @@ class QuestionnaireController extends Controller
      */
     public function store(StoreQuestionnaireRequest $request)
     {
-        dd($request);
+        $req = $request->all();
+        $req['modality'] = json_encode($request->modality);
+        $req['orientation'] = json_encode($request->orientation);
+        $req['therapy_addition'] = json_encode($request->therapy_addition);
+        $q = Questionnaire::firstOrCreate(
+            ['user_id' => auth()->user()->id],
+            $req
+        );
+
+        Session::flash('alert_success', 'You have successfully submitted your questionnaire.');
+
+        return redirect(route('client.questionnaires.index'));
     }
 
     /**

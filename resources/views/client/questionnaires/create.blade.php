@@ -10,17 +10,7 @@
             <form action="{{ route('client.questionnaires.store') }}" method="POST" class="mt-6 space-y-6">
                 @csrf
 
-                @if ($errors->any())
-                    <div class="bg-red-200 text-red-800 border-red-300 border px-5 py-3">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <div class="bg-white dark:bg-gray-900 p-6 text-gray-900 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="card">
                     <p class="mb-20">I would like the therapist to...</p>
 
                     <x-radio-row required="required" slug="a1" label1="Focus on specific goals" label2="No or equal preference" label3="Not focus on specific goals" />
@@ -60,7 +50,7 @@
                     <x-radio-row required="required" slug="a18" label1="Support my behaviour unconditionally" label2="No or equal preference" label3="Challenge my behaviour if they think it's wrong" />
                 </div>
 
-                <div class="bg-white dark:bg-gray-900 p-6 text-gray-900 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="card">
                     <p class="mb-5">I would prefer if my psychotherapist were...</p>
 
                     <x-radio-stacked :set="config('form-options.gender')" name="gender" />
