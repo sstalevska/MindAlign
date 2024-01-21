@@ -5,12 +5,11 @@ return [
         'No preference',
         'Male',
         'Female',
-        'Other',
+        'Non binary',
     ],
     'race' => [
         'No preference',
         'Asian',
-        'Biracial/Multiracial',
         'Black or African American',
         'Hispanic or Latino',
         'Jewish',
@@ -19,6 +18,7 @@ return [
         'Pacific Islander',
         'Romani',
         'White',
+        'Other',
     ],
     'sexual_orientation' => [
         'No preference',

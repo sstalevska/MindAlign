@@ -33,7 +33,7 @@ new class extends Component
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('client.questionnaires.create')" :active="request()->routeIs('client.questionnaires.*')" wire:navigate>
+                    <x-nav-link :href="route('client.questionnaires.index')" :active="request()->routeIs('client.questionnaires.*')" wire:navigate>
                         {{ __('Questionnaire') }}
                     </x-nav-link>
                 </div>
@@ -87,7 +87,7 @@ new class extends Component
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('client.questionnaires.create')" :active="request()->routeIs('client.questionnaire.*')" wire:navigate>
+            <x-responsive-nav-link :href="route('client.questionnaires.index')" :active="request()->routeIs('client.questionnaire.*')" wire:navigate>
                 {{ __('Questionnaire') }}
             </x-responsive-nav-link>
         </div>
