@@ -54,7 +54,7 @@ class TherapistFactory extends Factory
             'language' => json_encode($language),
             'modality' => json_encode($modality),
             'orientation' => json_encode($orientation),
-            'photo' => 'storage/photo/'.$user->id.'.jpg',
+            'photo' => '/storage/photo/'.$user->id.'.png',
         ];
     }
 

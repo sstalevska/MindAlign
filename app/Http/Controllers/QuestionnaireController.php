@@ -8,6 +8,7 @@ use App\Models\Questionnaire;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreQuestionnaireRequest;
+use App\Models\Therapist;
 
 class QuestionnaireController extends Controller
 {
@@ -17,13 +18,15 @@ class QuestionnaireController extends Controller
     public function index(): View|RedirectResponse
     {
         $questionnaire = Questionnaire::where('user_id', auth()->user()->id)->first();
-
         if (is_null($questionnaire)) {
             return redirect()->route('client.questionnaires.create');
         }
 
+        $therapists = Therapist::with('user')->get();
+
         return view('client.questionnaires.index', [
             'questionnaire' => $questionnaire,
+            'therapists' => $therapists,
         ]);
     }
 
