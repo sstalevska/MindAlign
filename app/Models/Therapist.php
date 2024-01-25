@@ -23,6 +23,11 @@ class Therapist extends Model
         return $this->formatJsonAttribute($value);
     }
 
+    public function getRaceAttribute($value)
+    {
+        return $this->formatJsonAttribute($value);
+    }
+
     public function getModalityAttribute($value)
     {
         return $this->formatJsonAttribute($value);

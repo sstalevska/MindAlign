@@ -22,11 +22,46 @@ class QuestionnaireController extends Controller
             return redirect()->route('client.questionnaires.create');
         }
 
-        $therapists = Therapist::with('user')->get();
+        $query = Therapist::query()->with('user');
+
+        $query->where('gender', $questionnaire->gender);
+
+        $query->orWhere('race', $questionnaire->race);
+
+        $query->orWhere('language' ,$questionnaire->language);
+
+        $query->orWhere('sexual_orientation' ,$questionnaire->sexual_orientation);
+
+        $query->orWhere('religion' ,$questionnaire->religion);
+
+        $therapists = $query->get();
+        $therapistsCount = $query->count();
+
+        foreach ($therapists as $therapist){
+            $matching = 0;
+
+            if ($questionnaire->gender == $therapist->gender) {
+                $matching++;
+            }
+            if (in_array($questionnaire->race, $therapist->race)) {
+                $matching++;
+            }
+            if ($questionnaire->sexual_orientation == $therapist->sexual_orientation) {
+                $matching++;
+            }
+            if ($questionnaire->religion == $therapist->religion) {
+                $matching++;
+            }
+            if (in_array($questionnaire->language, $therapist->language)) {
+                $matching++;
+            }
+            $therapist->matches = $matching;
+        }
 
         return view('client.questionnaires.index', [
             'questionnaire' => $questionnaire,
-            'therapists' => $therapists,
+            'therapists' => $therapists->sortByDesc('matches'),
+            'therapistsCount' => $therapistsCount,
         ]);
     }
 
