@@ -3,7 +3,8 @@
     'label1' => 'label1',
     'label2' => 'label2',
     'label3' => 'label3',
-    'slug'
+    'slug',
+    'value',
 ])
 
 <div>
@@ -13,43 +14,44 @@
         <div class="col-span-6 order-[14] md:text-center md:col-span-1 md:order-7 flex self-end">{{ $label3 }}</div>
         <div class="text-center order-1 md:order-8">
             <label>
-                <input type="radio" name="{{ $slug }}" value="-3" {{ $required }}>
+                <input type="radio" name="{{ $slug }}" value="-3" {{ $required }}
+                 {{ old($slug, $value) == -3 ? 'checked' : '' }}>
                 <div>-3</div>
             </label>
         </div>
         <div class="text-center order-3 md:order-9">
             <label>
-                <input type="radio" name="{{ $slug }}" value="-2">
+                <input type="radio" name="{{ $slug }}" value="-2" {{ old($slug, $value) == -2 ? 'checked' : '' }}>
                 <div>-2</div>
             </label>
         </div>
         <div class="text-center order-5 md:order-10">
             <label>
-                <input type="radio" name="{{ $slug }}" value="-1">
+                <input type="radio" name="{{ $slug }}" value="-1" {{ old($slug, $value) == -1 ? 'checked' : '' }}>
                 <div>-1</div>
             </label>
         </div>
         <div class="text-center order-7 md:order-11">
             <label>
-                <input type="radio" name="{{ $slug }}" value="0">
+                <input type="radio" name="{{ $slug }}" value="0" {{ old($slug, $value) == 0 ? 'checked' : '' }}>
                 <div>0</div>
             </label>
         </div>
         <div class="text-center order-9 md:order-12">
             <label>
-                <input type="radio" name="{{ $slug }}" value="1">
+                <input type="radio" name="{{ $slug }}" value="1" {{ old($slug, $value) == 1 ? 'checked' : '' }}>
                 <div>1</div>
             </label>
         </div>
         <div class="text-center order-11 md:order-[13]">
             <label>
-                <input type="radio" name="{{ $slug }}" value="2">
+                <input type="radio" name="{{ $slug }}" value="2" {{ old($slug, $value) == 2 ? 'checked' : '' }}>
                 <div>2</div>
             </label>
         </div>
         <div class="text-center order-[13] md:order-[14]">
             <label>
-                <input type="radio" name="{{ $slug }}" value="3">
+                <input type="radio" name="{{ $slug }}" value="3" {{ old($slug, $value) == 3 ? 'checked' : '' }}>
                 <div>3</div>
             </label>
         </div>

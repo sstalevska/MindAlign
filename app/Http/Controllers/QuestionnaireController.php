@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Therapist;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Models\Questionnaire;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\StoreQuestionnaireRequest;
-use App\Models\Therapist;
+use App\Http\Requests\QuestionnaireRequest;
 
 class QuestionnaireController extends Controller
 {
@@ -70,13 +69,21 @@ class QuestionnaireController extends Controller
      */
     public function create(): View
     {
-        return view('client.questionnaires.create');
+        $questionnaire = new Questionnaire();
+        $questionnaire->modality = "[]";
+        $questionnaire->orientation = "[]";
+         $questionnaire->therapy_addition = "[]";
+
+        return view('client.questionnaires.create-edit', [
+            'questionnaire' => $questionnaire,
+            'mode' => 'create',
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreQuestionnaireRequest $request)
+    public function store(QuestionnaireRequest $request)
     {
         $req = $request->all();
         $req['modality'] = json_encode($request->modality);
@@ -105,15 +112,26 @@ class QuestionnaireController extends Controller
      */
     public function edit(Questionnaire $questionnaire)
     {
-        //
+        return view('client.questionnaires.create-edit', [
+            'questionnaire' => $questionnaire,
+            'mode' => 'edit',
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Questionnaire $questionnaire)
+    public function update(QuestionnaireRequest $request, Questionnaire $questionnaire)
     {
-        //
+        $questionnaire->fill($request->all());
+        $questionnaire->modality = json_encode($request->modality);
+        $questionnaire->orientation = json_encode($request->orientation);
+        $questionnaire->therapy_addition = json_encode($request->therapy_addition);
+        $questionnaire->save();
+
+        Session::flash('alert_success', 'You have successfully submitted your questionnaire.');
+
+        return redirect(route('client.questionnaires.index'));
     }
 
     /**

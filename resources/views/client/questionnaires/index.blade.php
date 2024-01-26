@@ -5,7 +5,7 @@
                 {{ __('Questionnaire') }}
             </h2>
             <div class="ml-auto">
-                <x-primary-link :href="route('client.questionnaires.create')">Retake Questionnaire</x-primary-link>
+                <x-primary-link :href="route('client.questionnaires.edit', ['questionnaire' => $questionnaire])">Retake Questionnaire</x-primary-link>
             </div>
         </div>
     </x-slot>
@@ -84,7 +84,7 @@
                         Language: {{ $questionnaire->language ?? 'Not specified' }}
                     </div>
                     <div>
-                        Ethnicity: {{ $questionnaire->ethnicity ?? 'Not specified' }}
+                        Ethnicity: {{ $questionnaire->race ?? 'Not specified' }}
                     </div>
                     <div>
                         Religion: {{ $questionnaire->religion ?? 'Not specified' }}
@@ -194,7 +194,7 @@
                                     <div class="flex-grow">
                                         <h4 class="text-lg font-bold">{{ $therapist->user->name }}</h4>
                                         <div>
-                                            <a class="text-link" href="{{ $therapist->user->email }}">{{ $therapist->user->email }}</a>
+                                            <a class="text-link" href="mailto:{{ $therapist->user->email }}">{{ $therapist->user->email }}</a>
                                         </div>
                                         <div>
                                             <strong>Age:</strong> {{ \Carbon\Carbon::parse($therapist->dob)->age }}

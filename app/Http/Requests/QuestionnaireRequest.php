@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreQuestionnaireRequest extends FormRequest
+class QuestionnaireRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -50,19 +50,15 @@ class StoreQuestionnaireRequest extends FormRequest
             'modality.*' => [Rule::in(config('form-options.modality'))],
             'orientation' => ['required', 'array'],
             'orientation.*' => [Rule::in(config('form-options.orientation'))],
-
             'number_of_sessions' => ['required', Rule::in(config('form-options.number_of_sessions'))],
             'length_of_sessions' => ['required', Rule::in(config('form-options.length_of_sessions'))],
             'frequency_of_sessions' => ['required', Rule::in(config('form-options.frequency_of_sessions'))],
             'medication_preference' => ['required', Rule::in(config('form-options.medication_preference'))],
             'therapy_addition' => ['required', 'array'],
             'therapy_addition.*' => [Rule::in(config('form-options.therapy_addition'))],
-
             'other_personal_characteristics' => ['nullable', 'string', 'min:2', 'max:5000'],
             'strong_preferences' => ['nullable', 'string', 'min:2', 'max:5000'],
             'dislikes' => ['nullable', 'string', 'min:2', 'max:5000'],
-
-
         ];
     }
 }
