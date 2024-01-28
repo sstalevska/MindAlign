@@ -29,7 +29,7 @@
                         <p>Your responses on this occasion suggest you currently have a strong preference for client directiveness.</p>
                     @endif
 
-                    <h4 class="text-lg font-bold"><strong>Emotional Intensity Preferences:</strong></h4>
+                    <h4 class="pt-5 text-lg font-bold"><strong>Emotional Intensity Preferences:</strong></h4>
 
                     @php
                         $emotionalIntensityScore = $questionnaire->a6 + $questionnaire->a7 + $questionnaire->a8 + $questionnaire->a9;
@@ -45,7 +45,7 @@
                         <p>Your responses on this occasion suggest you currently have no strong preference for emotional intensity in psychotherapy sessions.</p>
                     @endif
 
-                    <h4 class="text-lg font-bold"><strong>Past/Present Orientation Preferences:</strong></h4>
+                    <h4 class="pt-5 text-lg font-bold"><strong>Past/Present Orientation Preferences:</strong></h4>
 
                     @php
                         $pastpresentScore = $questionnaire->a11 + $questionnaire->a12 + $questionnaire->a13;
@@ -59,7 +59,7 @@
                         <p>Your responses on this occasion suggest you currently have a strong preference for present orientation.</p>
                     @endif
 
-                    <h4 class="text-lg font-bold"><strong>Challenging/Supportive Preferences:</strong></h4>
+                    <h4 class="pt-5 text-lg font-bold"><strong>Challenging/Supportive Preferences:</strong></h4>
 
                     @php
                         $challengeScore = $questionnaire->a14 + $questionnaire->a15 + $questionnaire->a16 + $questionnaire->a17 + $questionnaire->a18;
