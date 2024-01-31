@@ -13,7 +13,7 @@
                     <h1 >Welcome</h1>
                     <p>Take the questionnaire to get contact information of therapists that match you personal needs and preferences.</p>
                     <p>
-                        This questionnaire is designed in accordance to The Cooper-Norcross Inventory of Preferences (C-NIP) - a brief, multidimensional measure of clients' therapy preferences.
+                        This questionnaire is designed in accordance with the Cooper-Norcross Inventory of Preferences (C-NIP) - a brief, multidimensional measure of clients' therapy preferences.
                     </p>
 
                     <p>
