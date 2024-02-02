@@ -103,7 +103,7 @@
                         Orientation(s): {{ $questionnaire->orientation ? implode(', ', json_decode($questionnaire->orientation)) : 'Not specified' }}
                     </div>
                     <div>
-                        Modalities: {{ $questionnaire->modalities ? implode(', ', json_decode($questionnaire->modalities)) : 'Not specified' }}
+                        Modalities: {{ $questionnaire->modality ? implode(', ', json_decode($questionnaire->modality)) : 'Not specified' }}
                     </div>
 
                     <hr class="my-5">
